@@ -1,0 +1,129 @@
+/*
+    Картка ігрового предмета (урок 72)
+    Тема: Sass змінні + nesting.
+
+    Бонус-експеримент: коли міняю $color-magic (акцентний колір),
+    одразу змінюються назва предмета, рамка картки і кнопка —
+    скрізь цей колір береться з однієї змінної.
+*/
+
+@use "sass:math";
+
+// палітра
+$color-magic: #8e7cf5;      // акцент (фіолетовий "тіньовий")
+$color-magic-dark: #7668d6; // акцент для :hover
+$color-magic-soft: #c3b8ff; // light-акцент
+$color-card: #23222b;
+$color-card-light: #2d2c38;
+$color-text: #f4f2ff;
+$color-text-soft: #a5a1b8;
+$color-gold: #f5c518;
+
+// відступи, скруглення
+$padding: 24px;
+$gap: 12px;
+$radius: 14px;
+$radius-btn: 10px;
+
+// скруглення для внутрішніх елементів — обчислюється з базового
+$radius-inner: math.div($radius, 2);
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #17161d;
+    font-family: Arial, sans-serif;
+}
+
+.item-card {
+    max-width: 340px;
+    padding: $padding;
+    background: $color-card;
+    border: 2px solid $color-magic;
+    border-radius: $radius;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+    // іконка + назва + тип
+    &__icon {
+        text-align: center;
+    }
+
+    &__title {
+        margin: 12px 0 4px;
+        font-size: 24px;
+        color: $color-magic;
+    }
+
+    &__type {
+        margin: 0;
+        font-size: 13px;
+        color: $color-text-soft;
+    }
+
+    // опис предмета
+    &__text {
+        color: $color-text-soft;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    // рядок з рідкісністю та ціною
+    &__meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $gap;
+        margin-top: 16px;
+        padding: 10px $radius-inner;
+        background: $color-card-light;
+        border-radius: $radius-inner;
+        font-size: 13px;
+    }
+
+    &__rarity {
+        color: $color-gold;
+    }
+
+    &__price {
+        color: $color-text;
+        font-weight: 700;
+    }
+
+    // кнопка
+    &__button {
+        width: 100%;
+        margin-top: 16px;
+        padding: 12px 16px;
+        border: none;
+        border-radius: $radius-btn;
+        background: $color-magic;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+
+        &:hover {
+            background: $color-magic-dark;
+            transform: translateY(-2px);
+        }
+    }
+
+    // модифікатор: легендарний предмет
+    &--legendary {
+        border-color: $color-gold;
+        box-shadow:
+            0 8px 24px rgba(0, 0, 0, 0.45),
+            0 0 18px rgba(245, 197, 24, 0.25);
+
+        .item-card__rarity {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+}

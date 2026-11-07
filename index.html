@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Картка предмета — Меч Тіней</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- Картка ігрового предмета. Модифікатор --legendary робить її легендарною -->
+    <article class="item-card item-card--legendary">
+
+        <div class="item-card__icon" aria-hidden="true">
+
+            <svg width="80" height="80" viewBox="0 0 16 16">
+                <!-- лезо меча -->
+                <rect x="7" y="1" width="2" height="9" fill="#8e7cf5"/>
+                <polygon points="7,10 9,10 8,12" fill="#8e7cf5"/>
+                <!-- гарда і руків'я -->
+                <rect x="5" y="9" width="6" height="2" fill="#3b2d63"/>
+                <rect x="7" y="11" width="2" height="3" fill="#5a4423"/>
+                <!-- блиск на лезі -->
+                <rect x="7" y="1" width="1" height="9" fill="#c3b8ff"/>
+            </svg>
+
+            <h1 class="item-card__title">Меч Тіней</h1>
+            <p class="item-card__type">Холодна зброя · Тіньовий кузень</p>
+
+        </div>
+
+        <p class="item-card__text">
+            Викутий у темному лісі з упізнаваним фіолетовим відливом.
+            Один удар знімає 12 HP, а вночі меч тьмяно світиться.
+        </p>
+
+        <!-- Рідкісність і ціна -->
+        <div class="item-card__meta">
+            <span class="item-card__rarity">Рідкісність: легендарна</span>
+            <span class="item-card__price">128 золота</span>
+        </div>
+
+        <button class="item-card__button" type="button">Купити</button>
+
+    </article>
+
+</body>
+
+</html>

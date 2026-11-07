@@ -1,0 +1,14 @@
+{
+  "name": "lesson-72-sass-variables",
+  "version": "1.0.0",
+  "description": "Урок 72: SASS змінні та nesting — картка ігрового предмета",
+  "scripts": {
+    "watch:css": "sass --watch scss:css",
+    "build:css": "sass scss/main.scss css/main.css"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.108.1"
+  }
+}
